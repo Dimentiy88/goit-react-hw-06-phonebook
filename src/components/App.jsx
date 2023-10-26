@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { setFilter } from 'redux/filterSlice';
 import { addContacts, deleteContacts, setFilter } from 'redux/contactsSlice';
 
-// import { nanoid } from 'nanoid';
-
 export const App = () => {
   const contacts = useSelector(state => state.contacts.contacts);
   const filter = useSelector(state => state.contacts.filter);
