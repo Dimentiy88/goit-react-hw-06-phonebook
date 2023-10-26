@@ -3,7 +3,7 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
 // import { setFilter } from 'redux/filterSlice';
-import { addContacts, deleteContacts, setFilter } from 'redux/contatsSlice';
+import { addContacts, deleteContacts, setFilter } from 'redux/contactsSlice';
 
 // import { nanoid } from 'nanoid';
 
