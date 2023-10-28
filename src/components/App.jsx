@@ -2,8 +2,11 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
-// import { setFilter } from 'redux/filterSlice';
-import { addContacts, deleteContacts, setFilter } from 'redux/contactsSlice';
+import {
+  addContacts,
+  deleteContacts,
+  onFilterChange,
+} from 'redux/contactsSlice';
 
 export const App = () => {
   const contacts = useSelector(state => state.contacts.contacts);
@@ -26,8 +29,8 @@ export const App = () => {
     dispatch(deleteContacts(contactName));
   };
 
-  const handleChange = filter => {
-    dispatch(setFilter(filter));
+  const handleChangeFilter = filter => {
+    dispatch(onFilterChange(filter));
   };
 
   return (
@@ -45,7 +48,7 @@ export const App = () => {
       <h1>Phonebook</h1>
       <ContactForm handleSubmit={handleSubmit} />
       <h2> Contacts</h2>
-      <Filter filter={filter} handleChange={handleChange} />
+      <Filter filter={filter} handleChange={handleChangeFilter} />
       <ContactList
         contacts={contacts}
         filter={filter}
