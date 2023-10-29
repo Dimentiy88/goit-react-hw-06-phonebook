@@ -1,18 +1,18 @@
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { onFilterChange } from 'redux/contactsSlice';
+import { deleteContacts } from 'redux/contactsSlice';
 
 export const ContactList = () => {
   const contacts = useSelector(state => state.contacts.contacts);
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
 
   const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
+    contact.name?.toLowerCase().includes(filter?.toLowerCase())
   );
 
-  const handleDelete = ({ target: { value } }) => {
-    dispatch(onFilterChange(value));
+  const handleDelete = contactId => {
+    dispatch(deleteContacts(contactId));
   };
 
   return (
